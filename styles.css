@@ -1,0 +1,309 @@
+:root{
+  /* Colors */
+  --clr-green: hsl(75, 94%, 57%);
+
+  --clr-neutral-100: hsl(0, 0%, 100%); /* White */
+  --clr-neutral-700: hsl(0, 0%, 20%); /* Dark Grey */
+  --clr-neutral-800: hsl(0, 0%, 12%); /* Off Black */
+  --clr-neutral-900: hsl(0, 0%, 8%); /* Black */
+
+  /* Front Weights */
+  --fw-regular:400;
+  --fw-bold:600;
+  --fw-extra-bold:700;
+
+  /* Typography */
+  --font-family-body: "Inter", sans-serif;
+  --fs-body: 0.875rem; /* 14px for body text */
+  --fs-heading-large: 1.5rem; /* For main name */
+  --fs-location: 0.875rem; /* For location text */
+  --fs-button: 0.875rem; /* For social link buttons */
+  --fs-attribution: 0.625rem; /* For attribution text (10px) */
+
+  /* Spacing */
+  --space-xs: 0.5rem;   /* 8px */
+  --space-sm: 0.75rem;  /* 12px */
+  --space-md: 1rem;     /* 16px */
+  --space-lg: 1.5rem;   /* 24px */
+  --space-xl: 2rem;     /* 32px */
+  --space-xxl: 3rem;    /* 48px */
+
+  /* Border Radius */
+  --radius-sm: 0.25rem; /* 4px */
+  --radius-md: 0.5rem;  /* 8px */
+  --radius-lg: 0.75rem; /* 12px */
+  --radius-full: 50%;
+}
+
+/* CSS Reset and Base Styles*/
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+/* general styling*/
+body{
+    /* text */
+    font-family: var(--font-family-body);
+    font-weight: var(--fw-regular);
+    color: var(--clr-neutral-100);
+    font-size: var(--fs-body);
+    text-align: center;
+
+    background-color: var(--clr-neutral-900); 
+    
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content:center ;
+    align-items: center;
+    overflow-x:hidden;
+    padding: var(--space-md);
+}
+
+/* general link styling*/
+a {
+  color:var(--clr-neutral-100);
+  transition: color 0.2s ease-in-out; /* Smooth hover transition */
+}
+
+a:hover, a:focus{
+  color: var(--clr-green);
+}
+
+.profile-card{
+    min-height: 45vh;
+    width: 30vw, 60vw;
+    background-color: var(--clr-neutral-800);
+    margin: 2px auto;
+    padding: 1rem;
+    border-radius: 0.3rem;
+}
+
+.profile-image{
+  display: flex;
+  justify-content: center;
+}
+
+.profile-image img{
+    margin-bottom: 0.5rem;
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-name{
+    font-size: 2rem;
+    font-weight: var(--fw-bold);
+}
+
+.profile-location{
+    font-size: 1rem;
+    font-weight: var(--fw-extra-bold);
+    color: var(--clr-green);
+    margin-bottom: 1rem;
+}
+
+.profile-social-links{
+  margin-top: 20px;
+}
+
+.btn-link {
+    min-height: 1rem;
+    background-color: var(--clr-neutral-700);
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+.btn-link:hover {
+  background-color: var(--clr-green);
+}
+
+.btn-link:hover a{
+  color:var(--clr-neutral-800);
+}
+
+.attribution{
+  font-size: 0.5rem;
+  margin-top: 3vh;
+}
+
+/* 
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Inherit fonts for form controls 
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* Avoid text overflows 
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* Improve line wrapping (modern CSS, great to have!) 
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/* Create a root stacking context 
+#root, #__next {
+  isolation: isolate;
+}
+
+/* Profile Card Styling 
+.profile-container {
+  display: flex; /* Use flexbox for main content centering 
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1; /* Allows it to take available space 
+  width: 100%; /* Ensure it spans full width 
+  max-width: 500px; /* Limit overall width for larger screens 
+}
+
+.profile-card {
+  background-color: var(--clr-neutral-800);
+  padding: var(--space-xl); /* Consistent padding 
+  border-radius: var(--radius-lg); /* Consistent border-radius 
+  width: 100%; /* Take full width of its container 
+  max-width: 380px; /* Optimal width for the card content 
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally within the card 
+  gap: var(--space-md); /* Consistent spacing between card elements 
+}
+
+.profile-image {
+  height: 88px; /* Slightly larger for better visual balance 
+  width: 88px; /* Slightly larger 
+  object-fit: cover;
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-xs); /* Smaller margin below image 
+}
+
+.profile-name {
+  font-size: var(--fs-heading-large);
+  font-weight: var(--fw-bold);
+  line-height: 1; /* Tighter line-height for headings 
+}
+
+.profile-location {
+  font-size: var(--fs-location);
+  font-weight: var(--fw-semi-bold); /* Using semi-bold for consistency 
+  color: var(--clr-green);
+  margin-bottom: var(--space-sm); /* Adjusted spacing 
+}
+
+.profile-bio { /* New class for the bio text
+  margin-bottom: var(--space-md); /* Adjusted spacing 
+  font-size: var(--fs-body);
+}
+
+.profile-social-links {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Ensure buttons take full width 
+  gap: var(--space-xs); /* Spacing between social link buttons 
+}
+
+.btn-link {
+  background-color: var(--clr-neutral-700);
+  border-radius: var(--radius-md);
+  padding: var(--space-md); /* Consistent padding 
+  font-weight: var(--fw-semi-bold);
+  font-size: var(--fs-button);
+  width: 100%; /* Ensure buttons span full width 
+  display: block; /* Make the anchor a block element to fill padding
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; /* Smooth transitions 
+}
+
+.btn-link:hover,
+.btn-link:focus { /* Add focus styles 
+  background-color: var(--clr-green);
+  color: var(--clr-neutral-800); /* Darker text on green background 
+  outline: none; /* Remove default focus outline if you're providing a custom one 
+}
+
+/* Attribution Styling 
+.attribution {
+  font-size: var(--fs-attribution);
+  margin-top: var(--space-lg); /* Adjusted margin for consistency 
+  color: var(--clr-neutral-100); /* Ensure color is set 
+}
+
+.attribution a {
+  color: var(--clr-neutral-100); /* Ensure link color for attribution 
+}
+
+.attribution a:hover,
+.attribution a:focus {
+  color: var(--clr-green); /* Hover/focus color for attribution links 
+
+
+/* Media Queries for Responsiveness 
+@media (max-width: 600px) {
+  .profile-card {
+    max-width: 90%; /* Allow card to be wider on small screens 
+    padding: var(--space-lg); /* Slightly less padding on smaller screens 
+  }
+
+  .profile-name {
+    font-size: var(--fs-heading-large); /* Can keep consistent or slightly adjust */
